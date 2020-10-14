@@ -1,0 +1,16 @@
+{
+  "name": "cleveland_art_bot",
+  "version": "1.0.0",
+  "description": "Twitter bot tweeting objects from the Cleveland Art Museum collection",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Chris Sanchez, @sanchito59",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "twitter": "^1.7.1"
+  }
+}
