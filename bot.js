@@ -34,7 +34,7 @@ const getAndTweetArchiveImage = async () => {
   getArchivesCount().then((response) => {
     return response.data.info.total;
   }).then((collectionTotal) => {
-    getArchiveObject(Math.floor(Math.random() * (collectionTotal - 1000))).then((response) => {
+    getArchiveObject(Math.floor(Math.random() * (collectionTotal / 1.2))).then((response) => {
       const item = response.data.data[Math.floor(Math.random() * 1000)];
       const accessNumber = item.accession_number;
       const title = item.title;
