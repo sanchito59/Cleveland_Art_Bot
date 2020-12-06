@@ -36,13 +36,16 @@ const getAndTweetArchiveImage = async () => {
   }).then((collectionTotal) => {
     getArchiveObject(Math.floor(Math.random() * (collectionTotal / 1.2))).then((response) => {
       const item = response.data.data[Math.floor(Math.random() * 1000)];
+
       const accessNumber = item.accession_number;
       const title = item.title;
-      const artist = item.creators ? item.creators[0].description : '';
-      const creationDate = item.creation_date;
-      const technique = item.technique;
+      const artist = item.creators[0] ? `- ${item.creators[0].description}` : '';
+      const creationDate = item.creation_date ? `, ${item.creation_date}` : '';
+      const technique = item.technique ? item.technique : '';
       const image = item.images.web.url;
-      caption = `${title} - ${artist}; ${technique}, ${creationDate} | ${accessNumber}`;
+
+      caption = `${title}${artist}; ${technique}${creationDate} | ${accessNumber}`;
+
       return new Promise((resolve, reject) => {
         download(image, 'image.png', () => resolve(caption));
       })
